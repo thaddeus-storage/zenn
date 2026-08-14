@@ -1,0 +1,14 @@
+{
+  "title": "Rails Asset Pipeline と esbuild 競合",
+  "closed": true,
+  "archived": false,
+  "created_at": "2025-06-26",
+  "comments": [
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-06-26",
+      "body_markdown": "# Rails Asset Pipeline と esbuild 競合\n\n![](https://storage.googleapis.com/zenn-user-upload/e367e2f54ce4-20250626.png)",
+      "body_updated_at": "2025-08-14"
+    }
+  ]
+}

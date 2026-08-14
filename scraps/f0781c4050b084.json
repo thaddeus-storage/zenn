@@ -1,0 +1,48 @@
+{
+  "title": "Playwright + GitHub Actions テスト自動化の構築",
+  "closed": true,
+  "archived": false,
+  "created_at": "2025-08-08",
+  "comments": [
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-08-08",
+      "body_markdown": "E2E Testig が重いから、頻繁すると意味がないから、下記の条件で発火する\n\n```yml\nname: E2E Testing\n\non:\n  pull_request:\n    types: [opened, review_requested]\n\n  schedule:\n    - cron: \"0 17 * * *\" # UTC 17:00 = JST 02:00\n\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\n```"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-08-08",
+      "body_markdown": "API 起動\n\n```yml\n    steps:\n      - name: Checkout API repository\n        uses: actions/checkout@v4\n        with:\n          repository: your-org/api\n          path: api\n          token: ${{ secrets.API_REPO_TOKEN }}\n\n      - name: Run API services\n        working-directory: api\n        env:\n          DATABASE_HOST: db\n\n        run: |          \n          docker compose -f docker-compose.yml up -d\n```"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-08-08",
+      "body_markdown": "E2E Testing - update snapshots\n\n```yml\non:\n  workflow_dispatch:\n    inputs:\n      should_update_screenshots:\n        description: \"Should update screenshots\"\n        required: false\n        default: false\n        type: boolean\n\n      - name: 📸 Update Screenshots\n        if: github.event_name == 'workflow_dispatch' && github.event.inputs.should_update_screenshots == 'true' && github.ref != 'refs/heads/develop' && github.ref != 'refs/heads/main'\n        working-directory: frontend\n        run: |\n          yarn e2e:update-screenshots\n      - name: Commit updated screenshots\n        if: always()\n        uses: EndBug/add-and-commit@v9\n        with:\n          cwd: frontend\n          add: \"tests/e2e/**/*.png\"\n          message: \"chore: update screenshots\"\n```"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-08-08",
+      "body_markdown": "E2E Testing\n\n\n```yml\n      - name: 🧪 Run E2E Tests\n        if: github.event_name != 'workflow_dispatch' || github.event.inputs.should_update_screenshots == 'false'\n        working-directory: frontend\n        run: |\n          yarn e2e\n      - name: 📤 Upload Planner E2E Test Report\n        if: always()\n        uses: actions/upload-artifact@v4\n        with:\n          name: e2e-testing-report\n          path: frontend/apps/playwright-report/*\n          retention-days: 30\n```"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-08-08",
+      "body_markdown": "# Playwright config\n\n```js\nuse: {\n    trace: 'on-first-retry',\n    video: 'retain-on-failure', // 録画\n  },\n```"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-08-08",
+      "body_markdown": "# vite.config.ts watch ignored\n\n\n![](https://storage.googleapis.com/zenn-user-upload/ad6b0589b320-20250808.png)"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-08-08",
+      "body_markdown": "# Playwright global-setup も try-catch\n\n```js\ntry {\n    await context.tracing.start({ screenshots: true, snapshots: true })\n    // ...\n} catch (error) {\n    await context.tracing.stop({\n      path: './playwright-report/trace/failed-setup-trace.zip',\n    })\n    await browser.close()\n    throw error\n  }\n\n```"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-08-08",
+      "body_markdown": "turbo.json `gloablIgnore` server restart 防止\n\n![](https://storage.googleapis.com/zenn-user-upload/eb654abd3113-20250808.png)"
+    }
+  ]
+}

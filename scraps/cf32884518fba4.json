@@ -1,0 +1,31 @@
+{
+  "title": "Next.js 15 に Turbopack を試す",
+  "closed": true,
+  "archived": false,
+  "created_at": "2025-11-19",
+  "comments": [
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-11-19",
+      "body_markdown": "# 1. Sentry 関連依頼が Warning \n\n```log\n⚠ ./node_modules/.pnpm/@sentry+node@10.11.0/node_modules/@sentry/node/build/cjs/sdk\nPackage import-in-the-middle can't be external\nThe request import-in-the-middle matches serverExternalPackages (or the default list).\nThe package resolves to a different version when requested from the project directory (2.0.0) compared to the package requested from the importing module (1.14.2).\nMake sure to install the same version of the package in both locations.\n\n```\n\n解決方法：Next.js と Sentry バージョンアップ\n\n最低バージョン：\n* Next.js 15.4.1\n* Sentry 10.13.0\n\n![](https://storage.googleapis.com/zenn-user-upload/d443417c945e-20251119.png)\n\nhttps://github.com/getsentry/sentry-javascript/issues/8105#issuecomment-3319437023\n\n",
+      "body_updated_at": "2025-11-20"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-11-20",
+      "body_markdown": "# 2. Turbopack を導入した後 tailwindcss daisyUI が崩れた\n\n解決方法：\n![](https://storage.googleapis.com/zenn-user-upload/eb5c693f5250-20251120.png)\n\nhttps://github.com/vercel/next.js/issues/81763\n",
+      "body_updated_at": "2025-11-20"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-11-24",
+      "body_markdown": "# 3. Next.js Turbopack not work in [Stackblitz](https://stackblitz.com)\n\n![](https://storage.googleapis.com/zenn-user-upload/3a93e2b42ee4-20251124.png)\n\nhttps://github.com/vercel/next.js/discussions/75665",
+      "body_updated_at": "2025-11-24"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-11-24",
+      "body_markdown": "# 4. Next.js v15.5.x not working on Webcontainers\n\n![](https://storage.googleapis.com/zenn-user-upload/4051ce169d15-20251124.png)\n\nhttps://github.com/stackblitz/webcontainer-core/issues/1978"
+    }
+  ]
+}

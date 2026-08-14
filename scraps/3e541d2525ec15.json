@@ -1,0 +1,13 @@
+{
+  "title": "TODO: Weglot crash React state management",
+  "closed": false,
+  "archived": false,
+  "created_at": "2025-10-07",
+  "comments": [
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-10-07",
+      "body_markdown": "Weglot 这种在 React render 后修改 UI 且和 React render 独立的技术，可能导致 React state management 出现错误。"
+    }
+  ]
+}

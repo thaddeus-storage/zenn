@@ -1,0 +1,14 @@
+{
+  "title": "Supabaseで既存メールアドレスで再登録時、‎`supabase.auth.signUp` が error を返さない問題の調査と対策",
+  "closed": true,
+  "archived": false,
+  "created_at": "2025-06-24",
+  "comments": [
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-06-24",
+      "body_markdown": "# Supabaseで既存メールアドレスで再登録時、`supabase.auth.signUp` が error を返さない問題の調査と対策\n\n## 概要\n\nSupabase で、すでに登録されているメールアドレスを使って `supabase.auth.signUp` を実行した際、エラーが返されず、正常に処理が完了したように見える現象に遭遇しました。\n\n## 原因\n\n調査の結果、Supabase の認証設定において「**Confirm email**」または「**Confirm phone**」のいずれかが **無効（disabled）** である必要があることが分かりました。  \n（※Phone provider を無効にしている場合でも、さらに「Confirm phone」も無効にする必要があります）\n\n![](https://storage.googleapis.com/zenn-user-upload/fe5a35fadb20-20250925.png)\n\n## 解決策\n\n1. Supabase の管理画面にアクセス  \n2. 「Authentication」→「Providers」→「Phone」へ移動  \n3. 「Confirm phone」を **無効（disabled）** に設定\n\nこの設定を行うことで、既存メールアドレスでの再登録時に、`supabase.auth.signUp` が正しくエラーを返すようになります。\n\n---\n\n同じ事象で困っている方の参考になれば幸いです。\n\nrefs: \nhttps://supabase.com/docs/reference/javascript/auth-signup\n",
+      "body_updated_at": "2025-09-25"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "title": "reviewdog/action-eslint Tips",
+  "closed": true,
+  "archived": false,
+  "created_at": "2026-05-25",
+  "comments": [
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2026-05-25",
+      "body_markdown": "![](https://static.zenn.studio/user-upload/90129cc12884-20260525.jpg)\n\nPR が大きい時：\n\nError: An error occurred trying to start process '/usr/bin/bash' with working directory '/home/runner/work/oiwaii/oiwaii'. Argument list too long\n\n![](https://static.zenn.studio/user-upload/b369f1fe747f-20260525.jpg)\n\n\nhttps://github.com/reviewdog/reviewdog",
+      "body_updated_at": "2026-05-25"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2026-05-25",
+      "body_markdown": "\nreviewdog `filter_mode` は対応範囲をコントロールできるから、`changed_files` を渡すことが不要です。\n\n事前に `changed_files` を計算しないと、大きな PR は GC の可能性があります、`NODE_OPTIONS: --max-old-space-size=8192` で対応しました。\n\n![](https://static.zenn.studio/user-upload/3361af4eb7c8-20260525.jpg)"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2026-05-27",
+      "body_markdown": "2026-05-27 reviewdog は github-pr-review にコメントしない \n\n![](https://static.zenn.studio/user-upload/0b758c165c60-20260527.jpg)\n\nretry したら、コメントできました。\nGitHub bug かも",
+      "body_updated_at": "2026-05-27"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2026-05-28",
+      "body_markdown": "2026-05-28 reviewdog が github-pr-review にコメントしないことは再発しました\n\n![](https://static.zenn.studio/user-upload/a5c4235a24e6-20260528.jpg)",
+      "body_updated_at": "2026-05-28",
+      "children": [
+        {
+          "author": "thaddeusjiang",
+          "created_at": "2026-05-28",
+          "body_markdown": "再現できました。\n2 reviewdog jobs は 1 comment を追加した、競合の問題が可能です。\n\n![](https://static.zenn.studio/user-upload/53044c1b1b8e-20260528.jpg)"
+        }
+      ]
+    }
+  ]
+}

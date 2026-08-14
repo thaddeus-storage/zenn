@@ -1,0 +1,18 @@
+{
+  "title": "todo:",
+  "closed": true,
+  "archived": false,
+  "created_at": "2025-06-05",
+  "comments": [
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-06-10",
+      "body_markdown": "記事の内容に基づいて、status 属性を書いた。\n\n![yagyu.js の ValueObject 例](https://storage.googleapis.com/zenn-user-upload/407a0c418581-20250610.png)\n\n🤔 Q: 1つの属性にこんなに多くのコードが必要だとしたら、TAIAN「婚礼業界」システムには同じようなコードがどれだけあるんだろう？\n\n\n\n推測すると、100個は下らないだろう。\n\n* 100個未満、TAIAN 「婚礼業界」はそれほど複雑ではないかもしれない。\n* 100個以上、似たような status オブジェクトがあるなら、開発者の指は相当鍛えられているに違いない。\n"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-06-10",
+      "body_markdown": "このTypeScriptコードをどう評価しますか？\n\n![](https://storage.googleapis.com/zenn-user-upload/8217a68c3079-20250610.png)\n\nフロントエンドDDD yagyu.js ではないコード👇\n\n```ts\n// 型定義\ntype Id = string\n\n// 利用\ngroupId: Id\ngroupIds: Id[]\n```"
+    }
+  ]
+}

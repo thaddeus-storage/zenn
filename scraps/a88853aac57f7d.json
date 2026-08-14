@@ -1,0 +1,13 @@
+{
+  "title": "TODO: Next.js + Rails 项目中 Image 优化策略",
+  "closed": false,
+  "archived": false,
+  "created_at": "2025-10-07",
+  "comments": [
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-10-07",
+      "body_markdown": "我可以从一下5个方面对 Image 进行优化\n\n1. 原始图片，在 admin 中就明确区分图片的大小，需要大图的用大图，不需要的用小图\n2. client 自动化下载，srcset 以及 Next.js <Image> component 的 sizes 相关配置\n3. Next.js Image quality + qualities\n4. cache\n5. priority + others lazy\n\n不需要 rails 配合的\n\n1. quality\n2. "
+    }
+  ]
+}

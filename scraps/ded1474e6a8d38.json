@@ -1,0 +1,13 @@
+{
+  "title": "graphql-request から urql へ移行",
+  "closed": true,
+  "archived": false,
+  "created_at": "2025-06-06",
+  "comments": [
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-09-29",
+      "body_markdown": "graphql-request の主なデメリットは以下の通りです。\n\n1. **キャッシュやリクエストの重複排除が標準で備わっていない**  \n   毎回ネットワーク越しにリクエストが発生し、同じクエリを複数回呼び出した場合でも自動でキャッシュや重複排除が行われません。そのため、無駄な通信やパフォーマンスの低下につながることがあります。\n\n2. **リトライ機能がない**  \n   ネットワークエラーやサーバーエラーが発生した場合、自動的に再試行（リトライ）する仕組みがありません。安定性を高めるには、別途リトライロジックを実装する必要があります。\n\n3. **React向けのHooksやDevToolsが用意されていない**  \n   graphql-requestはReactとの統合が薄く、useQueryやuseMutationといったReact Hooksが標準で提供されていません。また、クエリの状態を可視化できるDevToolsもありません。そのため、状態管理やデバッグの体験がurqlやApollo Clientと比べて劣ります。\n\nこれらの理由から、シンプルな用途には便利ですが、規模が大きくなったり、開発体験やパフォーマンスを重視する場合はurqlやApollo Clientなど、より高機能なクライアントの導入が検討されます。\n\n\nhttps://nearform.com/open-source/urql/\n\nhttps://www.npmjs.com/package/graphql-request"
+    }
+  ]
+}

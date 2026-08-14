@@ -1,0 +1,19 @@
+{
+  "title": "Ruby gem multi-platforms 対応",
+  "closed": true,
+  "archived": false,
+  "created_at": "2025-11-11",
+  "comments": [
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-11-11",
+      "body_markdown": "error message: \n\n```\n#21 9.767 HTTP 200 OK https://_@rubygems.pkg.github.com/someproduct-INC/versions\n#21 9.768 Fetching gem metadata from https://rubygems.pkg.github.com/someproduct-INC/\n#21 9.768 Looking up gems [\"someproduct-ai-agent\"]\n#21 9.769 HTTP GET https://_@rubygems.pkg.github.com/someproduct-INC/info/someproduct-ai-agent\n#21 9.864 HTTP 200 OK https://_@rubygems.pkg.github.com/someproduct-INC/info/someproduct-ai-agent\n#21 9.865 Looking up gems [\"rails\", \"activerecord\", \"activesupport\", \"config\", \"ruby-openai\", \"faraday\", \"faraday-retry\"]\n#21 9.879 The lockfile does not have all gems needed for the current platform though, Bundler will still re-resolve dependencies\n#21 10.12 Resolving dependencies.......\n#21 10.12 Resolving dependencies.......\n#21 10.12 Resolving dependencies.......\n#21 10.12 Resolving dependencies.......\n#21 10.12 Resolving dependencies.......\n#21 10.12 Resolving dependencies.......\n#21 10.12 Resolving dependencies.......\n無限 Resolving\n```\n\n\n"
+    },
+    {
+      "author": "thaddeusjiang",
+      "created_at": "2025-11-11",
+      "body_markdown": "結論（最重要ポイント）\n\n- 純粋 Ruby gem は spec.platform を Gem::Platform::RUBY に設定するのが基本\n\n- 個別ビルドは不要。対応プラットフォームは metadata に記録し、CI で「検証」する\n\n- リリース情報（Release/PR）に対応プラットフォーム一覧を明示して利用者の理解を助ける\n\n\n# gemspec 更新\n\n```ruby\nspec.platform = Gem::Platform::RUBY\n```",
+      "body_updated_at": "2025-11-11"
+    }
+  ]
+}
