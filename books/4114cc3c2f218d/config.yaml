@@ -9,6 +9,7 @@ topics:
   - "backend"
   - "agile"
 published: false
+allow_override: true
 price: 5000
 toc_depth: 2
 chapters:
