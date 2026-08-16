@@ -6,7 +6,8 @@ topics:
   - "aiagent"
   - "github"
   - "frog"
-published: false
+published: true
+published_at: 2026-08-17 09:00
 ---
 
 **AI Agent（以下、Agent）**が作業中に見つけた問題は、その場で直さなければチャットに埋もれがちです。
