@@ -6,9 +6,8 @@
 
 - [GitHub（ThaddeusJiang）](https://github.com/ThaddeusJiang)
 - [X（@ThaddeusJiang）](https://x.com/ThaddeusJiang)
-- [Zenn（@ThaddeusJiang）](https://zenn.dev/ThaddeusJiang)
 
 ## このリポジトリについて
 
-Zenn で公開する記事と本を GitHub で管理するためのリポジトリです。
+[Zenn（@ThaddeusJiang）](https://zenn.dev/thaddeusjiang) で公開する記事と本を GitHub で管理するためのリポジトリです。
 記事は `articles/`、本とチャプターは `books/` で管理し、Zenn CLI でローカルプレビューできます。
